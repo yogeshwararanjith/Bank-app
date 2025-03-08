@@ -80,7 +80,7 @@ login.addEventListener('click',function(event){
             labelWelcome.textContent = `Welcome back ${currentAccount.owner.split(' ')[0]}`;
             containerApp.style.opacity = 100;
             currentDate.textContent = `${day}/${month}/${year}`;
-            console.log(date.textContent)
+            startCountdown(5*60);
         }
         userInput.value = userPin.value = '';
         userPin.blur();
@@ -176,6 +176,28 @@ btnClose.addEventListener('click',function(e){
     }
     labelWelcome.textContent = 'Log in to get started';
     inputCloseUsername.value = inputClosePin.value = '';
-})
+});
+
+
+// timer function
+const timer = document.querySelector('.timer');
+
+const startCountdown = function(duration){
+    let timeRemaining = duration;
+
+    let countdown = setInterval(function(){
+        let minutes = Math.floor(timeRemaining/60);
+        let seconds = timeRemaining%60;
+        seconds = seconds < 10 ? "0"+seconds:seconds;
+        timer.textContent = `0${minutes}:${seconds}`;
+        if(timeRemaining <= 0){
+            clearInterval(countdown);
+            containerApp.style.opacity = 0;
+            labelWelcome.textContent = 'Log in to get started';
+        }else{
+            timeRemaining--;
+        }
+    },1000)
+}
 
 
