@@ -21,8 +21,8 @@ User's can be able to login with given username and password
 
 ## Screenshots
 
--[Login](logo.png)
--[Home](home_page.png)
+![Login](login.png)
+![Home](home_page.png)
 
 ## Built with
 
